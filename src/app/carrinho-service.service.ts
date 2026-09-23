@@ -6,10 +6,6 @@ export type Produto = {
   preco: number;
 };
 
-/**
- * Composto por um produto e a quantidade desse produto
- * que pode ser adicionado ao carrinho
- */
 export type Item = {
   id: number;
   produto: Produto;
@@ -23,7 +19,7 @@ export class CarrinhoService {
 
   itens = signal<Item[]>([]);
 
-  adicionarItem(produto: Produto) {
+  adicionar(produto: Produto) {
     this.itens.update(itens => {
       const item = itens.find(item => item.produto.id === produto.id);
 
